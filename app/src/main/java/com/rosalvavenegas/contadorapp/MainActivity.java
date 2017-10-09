@@ -17,6 +17,31 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        mCampoConteo = (EditText) findViewById(R.id.campo_conteo);
+        mBotonConteo = (Button) findViewById(R.id.boton_contar);
+        mBotonReiniciar = (Button) findViewById(R.id.boton_reiniciar);
 
+        mBotonConteo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String s = mCampoConteo.getText().toString();
+                int contador = Integer.parseInt(s);
+                contador++;
+                String contadorTotal = Integer.toString(contador);
+                mCampoConteo.setText(contadorTotal);
+            }
+        });
+
+        mBotonReiniciar.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                mCampoConteo.setText("0");
+
+            }
+
+        });
+
+    }
 }
 
